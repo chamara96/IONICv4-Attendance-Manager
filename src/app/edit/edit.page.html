@@ -1,0 +1,72 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Mark Attendance</ion-title>
+    <ion-buttons slot="end">
+
+      <ion-button (click)="goHomePage()"><ion-icon name="md-home" style="zoom:2.0;"></ion-icon></ion-button>
+
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+
+  <h4>{{title}} ({{code}})</h4>
+  <form [formGroup]="infoForm">
+    
+
+    <ion-card>
+    <ion-item>
+      <ion-label position="floating">Total Present Hours</ion-label>
+      <ion-input type="text" readonly="true"  formControlName="info_present"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Total Lecture Hours</ion-label>
+      <ion-input  type="text" readonly="true"  formControlName="info_total"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Total Absent Hours</ion-label>
+      <ion-input  type="text" readonly="true" formControlName="info_absent"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Excused Hours</ion-label>
+      <ion-input  type="text" readonly="true"  formControlName="info_excuse"></ion-input>
+    </ion-item>
+    </ion-card>
+
+   <!--  <ion-item>
+      <ion-label position="floating">Special notes</ion-label>
+      <ion-input  type="text" placeholder="Notes here"  formControlName="info_notes"></ion-input>
+    </ion-item> -->
+
+<!--     <ion-item lines="full" >
+      <ion-label position="floating">Special Notes - </ion-label>
+      <ion-textarea formControlName="info_notes" rows="5" cols="20"></ion-textarea>
+    </ion-item> -->
+
+    <!-- <ion-label fixed>Special Notes - </ion-label> -->
+    <ion-item class="rounded" >
+      <ion-label position="floating">Special Notes type here(optimal)</ion-label>
+      <ion-textarea type="text" formControlName="info_notes" rows="2" cols="20"></ion-textarea>
+    </ion-item>
+
+
+      <ion-input type="hidden" readonly="true"  formControlName="info_percentage"></ion-input>
+
+<!-- [disabled]="!infoForm.valid" -->
+    <!-- <ion-button shape="round" color="primary" expand="block"  (click)="updateInfo()">Update</ion-button> -->
+  </form>
+
+  <ion-button [disabled]="isenabled"  expand="block"  (click)="setPresent()" ><ion-icon name="md-checkbox" style="zoom:1.5;"></ion-icon>Present</ion-button>
+  <ion-button [disabled]="isenabled"  expand="block"  (click)="setAbsent()"><ion-icon name="md-backspace" style="zoom:1.5;"></ion-icon>Absent</ion-button>
+  <ion-button [disabled]="isenabled"  expand="block"  (click)="setExcuse()" ><ion-icon name="md-flag" style="zoom:1.5;"></ion-icon>Excuse</ion-button>
+  <p></p>
+  <p></p>
+  <ion-button [disabled]="isenabled"  expand="block"  (click)="updateInfo()"><ion-icon name="md-checkmark" style="zoom:1.5;"></ion-icon>Update</ion-button>
+
+  <!-- <ion-button [disabled]="isenabled" routerLink="/home"  expand="block"><ion-icon name="ios-home" ></ion-icon></ion-button> -->
+
+</ion-content>

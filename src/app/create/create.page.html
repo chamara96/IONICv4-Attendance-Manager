@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+    </ion-buttons>
+    <ion-title>New Module</ion-title>
+    <ion-buttons slot="end">
+
+      <ion-button (click)="goHomePage()"><ion-icon name="md-home" style="zoom:2.0;"></ion-icon></ion-button>
+
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <form [formGroup]="infoForm">
+
+    <ion-item>
+      <ion-label position="floating">Module Name</ion-label>
+      <ion-input type="text" formControlName="info_title"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Module Code</ion-label>
+      <ion-input type="text" formControlName="info_description"></ion-input>
+    </ion-item>
+
+    <ion-button color="primary" expand="block" [disabled]="isenabled"  (click)="saveInfo()">Add</ion-button>
+    <p></p>
+    <!-- <ion-button routerLink="/home"  expand="block"><ion-icon name="ios-home" ></ion-icon></ion-button> -->
+
+
+
+    <ion-input type="hidden" disabled="true" readonly="true" formControlName="info_present" value="0"></ion-input>
+    <ion-input type="hidden" disabled="true" readonly="true" formControlName="info_total" value="0"></ion-input>
+    <ion-input type="hidden" disabled="true" readonly="true" formControlName="info_absent" value="0"></ion-input>
+    <ion-input type="hidden" disabled="true" readonly="true" formControlName="info_excuse" value="0"></ion-input>
+    <ion-input type="hidden" disabled="true" readonly="true" formControlName="info_percentage" value="0"></ion-input>
+    <ion-input type="hidden" disabled="true" readonly="true" formControlName="info_notes" value="0"></ion-input>
+
+
+
+
+    
+  </form>
+</ion-content>

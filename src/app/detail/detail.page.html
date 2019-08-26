@@ -1,0 +1,93 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+    </ion-buttons>
+    <ion-title>Details</ion-title>
+    <ion-buttons slot="end">
+
+      <ion-button (click)="goHomePage()"><ion-icon name="md-home" style="zoom:2.0;"></ion-icon></ion-button>
+
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+
+  <ion-card>
+  <ion-card-header>
+    <ion-card-subtitle>{{info.info_description}}</ion-card-subtitle>
+    <ion-card-title>{{info.info_title}}</ion-card-title>
+  </ion-card-header>
+
+  <ion-card-content>
+    <p>Present Hours - <span class="tab">{{info.info_present}}</span></p>
+    <p>Total Hours - <span class="tab">{{info.info_total}}</span></p>
+    <p>Absent Hours - <span class="tab">{{info.info_absent}}</span></p>
+    <p>Excuse Hours - <span class="tab">{{info.info_excuse}}</span></p>
+  </ion-card-content>
+</ion-card>
+
+<ion-grid>
+  <ion-row>
+    <ion-col>
+      <circle-progress [percent]="info.info_percentage" [subtitleFormat]="formatSubtitle"></circle-progress>
+    </ion-col>
+    <ion-col>
+      <h3>{{status.head}}</h3>
+      <p>{{status.content}}</p>
+      <ion-icon name="{{status.icon}}" style="zoom:4.0;"></ion-icon>
+    </ion-col>
+  </ion-row>
+</ion-grid>
+
+
+
+
+
+<ion-card>
+  <ion-item>
+    <ion-icon name="walk" slot="start"></ion-icon>
+    <ion-label>Attendance<span class="tab_2" >{{info.info_percentage}}%</span></ion-label>
+  </ion-item>
+  <!-- <ion-card-content>
+    My Attendance - <span class="tab">{{info.info_percentage}}%</span>
+   
+  </ion-card-content> -->
+</ion-card>
+
+<ion-card>
+
+  <ion-item>
+    <ion-icon name="ios-warning" slot="start"></ion-icon>
+    <ion-label position="stacked">Special Notes</ion-label>
+    <ion-textarea  readonly value="{{info.info_notes}}" rows="6" cols="20"></ion-textarea>
+  </ion-item>
+
+</ion-card>
+
+<!-- <ion-card>
+  <ion-item>
+    <ion-icon name="ios-warning" slot="start"></ion-icon>
+    <ion-label>{{info.info_notes}}</ion-label>
+  </ion-item>
+</ion-card> -->
+
+
+
+
+<!-- dfdfdfdf -->
+<!-- <ion-button routerLink="/home"  expand="block"><ion-icon name="ios-home" ></ion-icon></ion-button> -->
+
+</ion-content>
+
+<style>
+
+.tab {position:absolute;left:150px;
+
+}
+.tab_2 {position:absolute;right:50px;
+
+}
+
+
+</style>

@@ -1,0 +1,70 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>
+      My Modules - {{appcomp.userName}}
+    </ion-title>
+    
+    <ion-buttons slot="start">
+      <ion-menu-button autoHide="false"></ion-menu-button>
+    </ion-buttons>
+
+<!--     <ion-buttons slot="end">
+
+      <ion-button (click)="refreshbtn()"><ion-icon name="md-refresh-circle" style="zoom:2.0;"></ion-icon></ion-button>
+
+    </ion-buttons> -->
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+    <h3>{{myDate | date:'EEEE dd MMMM yyyy'}}</h3>
+<!--     <p>info.info_title</p> -->
+
+  <ion-list class="mainlistcss">
+
+<!-- lines="full" -->
+    <ion-item-sliding *ngFor="let info of this['infos'+this.appcomp.j]">
+    <ion-item class="itemcss" (click)="edit(info.key)">
+      <ion-icon name="ios-arrow-dropright-circle" slot="start"></ion-icon>
+      <ion-label>
+        <h2>{{info.info_title}} ({{info.info_description}})</h2>
+        <!-- <p>{{info.info_description}}</p> -->
+        <p>{{info.info_percentage}}%</p>
+        <p>{{info.info_notes}}</p>
+      </ion-label>
+      <ion-icon name="ios-arrow-dropleft-circle" slot="end"></ion-icon>
+
+    </ion-item>
+
+    <ion-item-options class="itemcss" side="start">
+      <ion-item-option color="danger" (click)="delete(info.key)">
+        <ion-icon slot="icon-only" name="trash"></ion-icon>
+      </ion-item-option>
+    </ion-item-options>
+
+    <ion-item-options class="itemcss" side="end">
+      <ion-item-option routerLink="/detail/{{info.key}}" >
+        <ion-icon slot="icon-only" name="ios-checkmark-circle"></ion-icon>
+      </ion-item-option>
+    </ion-item-options>
+
+  </ion-item-sliding>
+
+
+  </ion-list>
+
+
+</ion-content>
+
+
+<!-- <ion-footer>
+  <ion-toolbar color="primary">
+    <ion-title>
+      Add Module
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-button routerLink="/create"><ion-icon name="add-circle" style="zoom:2.0;"></ion-icon></ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer> -->
